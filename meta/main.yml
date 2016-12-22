@@ -1,15 +1,13 @@
 galaxy_info:
   author: Nimrod Adar
-  description: An example Ansible role
+  description: Bootstrap an OpenWRT instance (allow Ansible to provision the instance)
   company: Shore technologies
   license: MIT
   min_ansible_version: 2.0
   platforms:
-  - name: OpenBSD
+  - name: OpenWRT
     versions:
-    - 6.0
-  - name: Ubuntu
-    versions:
-    - xenial
-  galaxy_tags: [ ansible ]
+    - 14.07
+    - 15.05
+  galaxy_tags: [ ansible, openwrt ]
 dependencies: []

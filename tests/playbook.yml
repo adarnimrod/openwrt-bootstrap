@@ -1,13 +1,14 @@
 ---
-- hosts: example-openbsd
-  gather_facts: false
-  roles: [openbsd-bootstrap]
-
-- hosts: example-xenial
-  gather_facts: false
-  roles: [debian-bootstrap]
-
 - hosts: all
+  gather_facts: False
   strategy: free
   roles:
-    - role: example
+    - role: openwrt-bootstrap
+  post_tasks:
+      - name: Test gathering facts
+        setup:
+
+      - name: Assertions
+        assert:
+            that:
+                - ansible_default_ipv4 is defined

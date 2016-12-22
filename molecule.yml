@@ -14,12 +14,12 @@ vagrant:
   - name: virtualbox
     type: virtualbox
   platforms:
-  - name: openbsd
-    box: kaorimatz/openbsd-6.0-amd64
-  - name: xenial
-    box: ubuntu/xenial64
+  - name: '14.07'
+    box: qqshfox/openwrt-barrier_breaker
+  - name: '15.05'
+    box: lifeeth/openwrt-15.05-x86
   instances:
-  - name: example
+  - name: openwrt-bootstrap
     options:
         append_platform_to_hostname: yes
   raw_config_args:
@@ -29,15 +29,11 @@ vagrant:
   - 'landrush_ip.override = false'
 
 docker:
+  build_image: False
   containers:
-  - name: example-xenial
-    image: ubuntu
-    image_version: xenial
-    command: /sbin/init
-    privileged: True
-    volume_mounts:
-      - /sys/fs/cgroup:/sys/fs/cgroup
-      - /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
-    environment:
-        DEBIAN_FRONTEND: noninteractive
-        container: docker
+  - name: openwrt-bootstrap-15.05
+    image: xdrum/openwrt
+    image_version: 15.05
+  - name: openwrt-bootstrap-14.07
+    image: xdrum/openwrt
+    image_version: 14.07

@@ -1,8 +1,16 @@
 ---
-# tasks file for example
+# tasks file for openwrt-bootstrap
 
-- name: Assertions
-  assert:
-    that:
-        - ansible_os_family in ['OpenBSD', 'Debian']
-        - ansible_distribution_release in ['6.0', 'xenial']
+- name: Update opkg package lists
+  raw: opkg update
+  changed_when: False
+
+- name: opkg install python
+  raw: opkg install python
+  register: openwrt_bootstrap_install_python
+  changed_when: "'Downloading' in openwrt_bootstrap_install_python.stdout"
+
+- name: opkg install ip
+  opkg:
+      name: ip
+      state: present

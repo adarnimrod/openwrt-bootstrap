@@ -1,12 +1,10 @@
-Example
-#######
+OpenWRT bootstrap
+#################
 
-.. image:: https://travis-ci.org/adarnimrod/example.svg?branch=master
-    :target: https://travis-ci.org/adarnimrod/example
+.. image:: https://travis-ci.org/adarnimrod/openwrt-bootstrap.svg?branch=master
+    :target: https://travis-ci.org/adarnimrod/openwrt-bootstrap
 
-An (empty) example Ansible role complete with working tests out of the box. For
-more information read the `blog post
-<https://www.shore.co.il/blog/ansible-example-role/>`_.
+Bootstrap an OpenWRT instance (allow Ansible to provision the instance).
 
 Requirements
 ------------
@@ -61,3 +59,8 @@ Nimrod Adar, `contact me <nimrod@shore.co.il>`_ or visit my `website
 <https://www.shore.co.il/>`_. Patches are welcome via `git send-email
 <http://git-scm.com/book/en/v2/Git-Commands-Email>`_. The repository is located
 at: https://www.shore.co.il/git/.
+
+TODO
+----
+
+- Working tests using Vagrant.
